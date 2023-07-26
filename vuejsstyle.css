@@ -1,0 +1,33 @@
+ @-webkit-keyframes rotate-vert-center {
+     0% {
+         -webkit-transform: rotateY(0);
+         transform: rotateY(0);
+         opacity: 20%;
+     }
+
+     100% {
+         -webkit-transform: rotateY(360deg);
+         transform: rotateY(360deg);
+         opacity: 100%;
+     }
+ }
+
+ .rotate-vert-center {
+     padding: 30px;
+     font-size: 100px;
+ }
+
+ .rotate-vert-center:not(:active) {
+     -webkit-animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+     animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+ }
+
+ .button2 {
+     padding: 10px;
+     margin-top: 100px;
+     font-size: 20px;
+ }
+
+ .list__li {
+     font-size: 30px;
+ }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vuejsstyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Создать кнопку "Перевернуть". При клике на кнопку текст кнопки, должен перевернуться и отобразиться в обратном порядке. -->
+
+        <button @click="reverseText" class="rotate-vert-center">{{ innerText }}</button>
+
+        <br>
+
+
+        <!-- есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".
+        * При клике на элемент списка он должен быть удален. (по желанию) -->
+
+        <button @click="addNewLi" class="button2">Добавить</button>
+        <ul class="list">
+        </ul>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        const VueApp = {
+            data() {
+                return {
+                    counter: 1,
+                    innerText: 'Нажми на меня',
+                }
+            },
+            methods: {
+                reverseText() {
+                    this.innerText = this.innerText.split('').reverse().join('');
+                },
+                addNewLi() {
+                    const ul = document.querySelector('.list');
+                    const newLi = document.createElement('li');
+                    newLi.textContent = `Новый элемент списка ${this.counter++} (нажми на меня для удаления)`;
+                    newLi.classList.add('list__li');
+                    newLi.onclick = function () {
+                        this.remove()
+                    };
+                    ul.appendChild(newLi);
+                },
+            },
+        }
+        Vue.createApp(VueApp).mount('#app');
+
+    </script>
+
+</body>
+
+</html>
